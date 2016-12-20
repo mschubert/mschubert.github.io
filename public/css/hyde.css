@@ -41,7 +41,7 @@ html {
 }
 @media (min-width: 58em) {
   html {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 
@@ -107,6 +107,12 @@ a.sidebar-nav-item:focus {
 
 @media (min-width: 48em) {
   .sidebar-sticky {
+    position: absolute;
+    right:  1rem;
+    top:    4rem;
+    left:   1rem;
+  }
+  .sidebar-bottom {
     position: absolute;
     right:  1rem;
     bottom: 1rem;
