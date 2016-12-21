@@ -25,7 +25,7 @@ In particular, the separation of user-readable system packages and
 user-writable personal packages [does not always
 work](https://github.com/EBI-predocs/research-software/issues/57).
 
-For these reasons, I found it easiest to specify an explicit library path.
+This is why I found it easiest to specify an explicit library path.
 
 {% highlight r %}
 .libPaths("~/.R")
