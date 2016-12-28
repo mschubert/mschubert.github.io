@@ -80,7 +80,7 @@ that will not impact your interactive sessions.
 {% highlight r %}
 if (!interactive())
     options(error = function() {
-        traceback(2)
+        traceback(2, max.lines=10)
         quit(save="no", status=1)
     })
 {% endhighlight %}
