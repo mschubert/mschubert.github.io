@@ -7,7 +7,7 @@ Here are some settings that I found useful for working with R. Note that I'm
 mainly using basic R scripts in an HPC environment and not
 [Rstudio](https://www.rstudio.com/) most of the time.
 
-TL;DR: have a look at [the whole file](https://gist.github.com/mschubert/0ce46ffc599358c9c799487898860395).
+*TL;DR: have a look at [the whole file](https://gist.github.com/mschubert/0ce46ffc599358c9c799487898860395).*
 
 ### Custom library path
 
