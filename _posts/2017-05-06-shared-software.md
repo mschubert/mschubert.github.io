@@ -3,6 +3,9 @@ layout: post
 title: Shared HPC software installations
 ---
 
+*TL;DR: Keep your own installation on a computing cluster, don't rely on others.
+But do use a package manager.*
+
 I work at a research institute with considerable computing capabilities. Things
 you can't run on your normal work machine, you send to a high performance
 computing cluster. Administration is taking care of by a group of people
@@ -67,18 +70,37 @@ requests](https://github.com/EBI-predocs/research-software/issues?q=is%3Aissue+i
 and [advertised
 updates](https://github.com/EBI-predocs/research-software/issues?q=is%3Aissue+is%3Aclosed+label%3Aannouncement)
 before we performed them so users are not surprised by small changes. About 30
-people relied on it, and it worked really well for two years to come (with
-minor hiccups on occasion).
+people relied on it, and it worked really well for three years to come.
 
-### Share instructions, not installations
+### Share instructions, not installations 
 
-Since then, however, things have evolved. Linuxbrew (the linux-pendant to the
-OS-X package manager Homebrew) and Conda were released. And they were
-substantially simpler to use than Gentoo.
+We had [minor
+hiccups](https://github.com/EBI-predocs/research-software/issues?q=is%3Aissue+is%3Aclosed+label%3Abug)
+on occasion and a [major
+hiccup](https://github.com/EBI-predocs/research-software/issues/52) once
+(basically, the linker added symbols from a broken internationalization library
+ that cascaded into breaking everything newly added or updated). But these were
+a small price to pay for a usable and convenient system.
 
+One thing that was annoying is that libraries and tools somethings change
+features between updates, and that would break a workflow that you are
+currently using. But since this was shared, a change for anyone was a change for
+everyone.
 
+Since then, however, things have evolved. [Linuxbrew](http://linuxbrew.sh/)
+(the linux-pendant to the OS-X package manager Homebrew) and
+[Conda](https://conda.io/docs/) were released. And they were substantially
+simpler to use than Gentoo.
 
-### Alternatives
+So I don't really see a reason to still put up with API changes for any user
+unless they want to update their installation. The new package managers are
+easy enough to use individually, and storage space is cheap so why bother.
 
-docker: same issues as first
-and making the same mistakes that PMs have fixed a long time ago
+There is, however, one thing to keep in mind that often goes underappreciated.
+If you need a tool that doesn't yet exist in a repository and you already put
+the effort in to manually install it, go one step further and add is as a build
+script for the package manager. Please. It helps so much if more people do that.
+
+In short, with Linuxbrew and Conda available, just keep installations separate.
+There is no real downside. And share the build scripts, so everyone can easily
+maintain and extend their own tool collection.
