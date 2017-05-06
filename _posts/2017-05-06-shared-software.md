@@ -72,7 +72,7 @@ updates](https://github.com/EBI-predocs/research-software/issues?q=is%3Aissue+is
 before we performed them so users are not surprised by small changes. About 30
 people relied on it, and it worked really well for three years to come.
 
-### Share instructions, not installations 
+### Don't use shared software installations
 
 We had [minor
 hiccups](https://github.com/EBI-predocs/research-software/issues?q=is%3Aissue+is%3Aclosed+label%3Abug)
@@ -95,6 +95,8 @@ simpler to use than Gentoo.
 So I don't really see a reason to still put up with API changes for any user
 unless they want to update their installation. The new package managers are
 easy enough to use individually, and storage space is cheap so why bother.
+
+### But please contribute your build scripts
 
 There is, however, one thing to keep in mind that often goes underappreciated.
 If you need a tool that doesn't yet exist in a repository and you already put
