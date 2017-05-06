@@ -102,5 +102,7 @@ the effort in to manually install it, go one step further and add is as a build
 script for the package manager. Please. It helps so much if more people do that.
 
 In short, with Linuxbrew and Conda available, just keep installations separate.
-There is no real downside. And share the build scripts, so everyone can easily
-maintain and extend their own tool collection.
+There is no real downside. And
+[share](https://github.com/Linuxbrew/brew/blob/master/CONTRIBUTING.md) the
+build scripts *with the upstream repository*, so everyone can easily maintain
+and extend their own tool collection.
