@@ -3,11 +3,14 @@ layout: post
 title: Shared HPC software installations
 ---
 
-*TL;DR: Keep your own installation on a computing cluster, don't rely on others.
-But do use a package manager.*
+*TL;DR: Keep your own installation on a computing cluster, don't rely on
+others.  But do use a package manager. And
+[share](https://github.com/Linuxbrew/brew/blob/master/CONTRIBUTING.md) the
+build scripts with the upstream repository, so everyone can easily maintain and
+extend their own tool collection.*
 
 I work at a research institute with considerable computing capabilities. Things
-you can't run on your normal work machine, you send to a high performance
+you can't run on your normal work machine you send to a high performance
 computing cluster. Administration is taking care of by a group of people
 specifically employed to make sure things run smoothly, so you just log in and
 run whatever computing task you require.
@@ -22,20 +25,20 @@ manger. But is it available on the computing cluster?
 
 The system administrators were happy to add software available in the official
 distributions' repository but not from third party sources. Of course, this
-makes sense because everything needed to be stable. That meant the system
+makes sense because everything needed to be stable. And stable meant the system
 libraries are generally out of date by a couple of years.
 
 We were lucky to have a person who, next to his regular responsibilities
 installed software that people needed on a semi-regular basis. Or people
-compiled different tools themselves. That resulted in a system with a `$PATH`
-that contained too many directories and that had to be constantly amended. And
-`$LD_LIBRARY_PATH` too, of course, which resulted in broken dependencies all
-the time because something didn't quite resolve right.
+compiled different tools themselves. Every new tool was a new entry in `$PATH`,
+which grew continuously. And `$LD_LIBRARY_PATH` too, of course, which
+resulted in broken dependencies all the time because something didn't
+quite resolve right.
 
-Manually compiling things of course often resulted in disabling optional
-functionality in order to get it done quickly (BLAS/LAPACK support for R? Then
-I'd need to install two more libraries). And it took a substantial amount of
-time to get anything running.
+Manually compiling things often resulted in disabling optional functionality in
+order to get it done quickly (BLAS/LAPACK support for R? Then I'd need to
+install two more libraries). And it took a substantial amount of time
+to get anything running.
 
 ### Package managers to the rescue
 
@@ -45,7 +48,8 @@ software or build scripts to draw from than was readily available on the
 system.
 
 At the time (first half of 2014), however, there were not many options
-available. After a long search, I discovered the [Gentoo Prefix
+available. After looking for possible solutions for a couple of weeks I
+discovered the [Gentoo Prefix
 project](https://wiki.gentoo.org/wiki/Project:Prefix) that provided a
 user-level package manager which could use (almost) all the build scripts from
 the distribution.
@@ -82,14 +86,14 @@ hiccup](https://github.com/EBI-predocs/research-software/issues/52) once
  that cascaded into breaking everything newly added or updated). But these were
 a small price to pay for a usable and convenient system.
 
-One thing that was annoying is that libraries and tools somethings change
-features between updates, and that would break a workflow that you are
+One thing that was annoying is that libraries and tools sometimes change
+API between updates, and that would break a workflow that you are
 currently using. But since this was shared, a change for anyone was a change for
 everyone.
 
 Since then, however, things have evolved. [Linuxbrew](http://linuxbrew.sh/)
-(the linux-pendant to the OS-X package manager Homebrew) and
-[Conda](https://conda.io/docs/) were released. And they were substantially
+(the linux-pendant to the OS-X package manager [Homebrew](https://brew.sh/))
+and [Conda](https://conda.io/docs/) were released. And they were substantially
 simpler to use than Gentoo.
 
 So I don't really see a reason to still put up with API changes for any user
@@ -102,9 +106,3 @@ There is, however, one thing to keep in mind that often goes underappreciated.
 If you need a tool that doesn't yet exist in a repository and you already put
 the effort in to manually install it, go one step further and add is as a build
 script for the package manager. Please. It helps so much if more people do that.
-
-In short, with Linuxbrew and Conda available, just keep installations separate.
-There is no real downside. And
-[share](https://github.com/Linuxbrew/brew/blob/master/CONTRIBUTING.md) the
-build scripts *with the upstream repository*, so everyone can easily maintain
-and extend their own tool collection.
