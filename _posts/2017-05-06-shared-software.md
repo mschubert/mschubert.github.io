@@ -11,7 +11,7 @@ extend their own tool collection.*
 
 I work at a research institute with considerable computing capabilities. Things
 you can't run on your normal work machine you send to a high performance
-computing cluster. Administration is taking care of by a group of people
+computing cluster. Administration is taken care of by a group of people
 specifically employed to make sure things run smoothly, so you just log in and
 run whatever computing task you require.
 
