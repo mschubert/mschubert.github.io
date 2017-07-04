@@ -24,7 +24,8 @@ It's pretty simple to catch the errors, or warnings:
 try(f(2))
 
 # this will catch warning messages and process them
-# however, it will not continue the function execution after, i.e. result is NULL
+# however, it will not continue the function execution after,
+#   i.e. result is NULL
 result = tryCatch(f(3),
                   error=function(w) message("process error"),
                   warning=function(w) message("process warning"))
@@ -36,8 +37,8 @@ only processes the warning:
 {% highlight r %}
 # no result, no error processing
 result = tryCatch(f(6),
-                  error=function(w) message("process error"),
-                  warning=function(w) message("process warning"))
+    error=function(w) message("process error"),
+    warning=function(w) message("process warning"))
 {% endhighlight r %}
 
 If we want it to handle warnings and errors equally, as well as still the the
@@ -54,7 +55,7 @@ f = function(...) {
         ),
         warning = function(w) {
             context$warnings = c(context$warnings,
-                                 list(as.character(conditionMessage(w))))
+                 list(as.character(conditionMessage(w))))
             invokeRestart("muffleWarning")
         },
         error = function(e) {
