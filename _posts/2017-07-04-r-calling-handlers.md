@@ -27,8 +27,8 @@ try(f(2))
 # however, it will not continue the function execution after,
 #   i.e. result is NULL
 result = tryCatch(f(3),
-                  error=function(w) message("process error"),
-                  warning=function(w) message("process warning"))
+    error=function(w) message("process error"),
+    warning=function(w) message("process warning"))
 {% endhighlight r %}
 
 Also, if we want to process errors *and* warnings the `tryCatch()` block
