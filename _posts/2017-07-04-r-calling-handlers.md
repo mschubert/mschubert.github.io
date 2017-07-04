@@ -67,8 +67,11 @@ f = function(...) {
     as.list(context)
 }
 
-fwrap(a=1)
-fwrap(a=3)
-fwrap(a=2)
-fwrap(a=6)
+f(a=1)
+f(a=3)
+f(a=2)
+f(a=6)
 {% endhighlight r %}
+
+Each of these calls returns a list with the elements `result` for the result of
+the function call, but also `warnings` and `error` if they occurred.
